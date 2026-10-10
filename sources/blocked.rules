@@ -1,0 +1,3 @@
+# Explicit exceptions to preserve existing advertising/tracker blocking.
+# Review these against your active Shadowrocket main configuration.
+DOMAIN,r.openai.com,REJECT
