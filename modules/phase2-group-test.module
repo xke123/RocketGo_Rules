@@ -6,7 +6,7 @@ AI-PROXY = select,Tencent-US-Direct,Tencent-US
 
 [Rule]
 # Compatibility probe (kept from Phase 2)
-DOMAIN,example.org,AI-PROXY
+DOMAIN,example.org,Tencent-US
 
 # OpenAI / ChatGPT
 DOMAIN-SUFFIX,chatgpt.com,AI-PROXY
