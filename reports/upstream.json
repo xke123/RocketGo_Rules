@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "SurgeToolkit": {
+      "url": "https://raw.githubusercontent.com/imetn/SurgeToolkit/main/Rules/ai.list",
+      "count": 83
+    }
+  },
+  "errors": {
+    "Yixuling": "No valid domain rules found"
+  },
+  "candidate_count": 83,
+  "published_automatically": false
+}
