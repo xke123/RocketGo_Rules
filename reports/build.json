@@ -1,0 +1,15 @@
+{
+  "approved_count": 12,
+  "blocked_count": 1,
+  "conflicts_handled_by_precedence": [
+    {
+      "approved": "DOMAIN-SUFFIX,openai.com,AI-PROXY",
+      "blocked": "DOMAIN,r.openai.com,REJECT"
+    }
+  ],
+  "notes": [
+    "No unreviewed upstream rules are auto-published.",
+    "Compare blocked.rules against your current main configuration periodically.",
+    "This module does not manage node credentials or the primary configuration."
+  ]
+}
