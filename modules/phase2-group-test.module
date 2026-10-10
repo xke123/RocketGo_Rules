@@ -1,0 +1,8 @@
+#!name=xke AI - Phase 2 Group Test
+#!desc=Temporary compatibility probe: test whether a module can define AI-PROXY. Only example.org is routed.
+
+[Proxy Group]
+AI-PROXY = select,Tencent-US-Direct,Tencent-US
+
+[Rule]
+DOMAIN,example.org,AI-PROXY
