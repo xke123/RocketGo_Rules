@@ -1,8 +1,31 @@
 # xke-ai-routing
 
+## 最新实施进度（2026-10-11）
+
+macOS Shadowrocket 已经实测：远程模块更新、规则命中、模块内 `AI-PROXY` 解析、两个订阅节点分别作为路由出口、国内直连，以及更新主配置后的规则保留。**真实连通性、广告规则全量兼容和策略组界面切换仍需持续验证。**
+
+### 已部署的自动化
+
+- 远程模块固定路径：`modules/phase2-group-test.module`（**不要重新添加 URL，只需更新现有模块**）。
+- `sources/approved.rules`：经过人工批准、允许发布的 AI 域名规则。
+- `sources/blocked.rules`：明确的拒绝例外，生成时排在 AI 规则之前；目前只列出已知的 `r.openai.com`，**不是对主配置 5 万多条规则的完整冲突审计**。
+- `scripts/build_module.py`：格式检查、去重、共享后缀拒绝、例外优先级、生成模块及 `reports/build.json`。
+- `scripts/fetch_sources.py`：每日从两个社区源收集候选域名到 `sources/candidates.txt`，并生成 `reports/upstream.json`；**候选域名不会自动进入模块**。
+- `.github/workflows/update.yml`：每天 UTC 03:17 定时运行，支持手动运行；仅在生成文件变化时提交。上游全部不可用时停止候选刷新，不覆盖旧模块。
+- 不存储代理订阅 Token、UUID 或 REALITY 私钥。
+
+### 新域名如何发布
+
+先审阅 `sources/candidates.txt`，确认域名确属 AI 服务、不会影响普通 Google 流量或广告拦截，然后手动添加到 `sources/approved.rules`。GitHub Actions 会重新生成**原来的模块文件**，Shadowrocket 只需点击更新。
+
+**限制：** 目前实现的是「每日自动发现候选 + 已批准规则自动生成和发布」，不是「未经审核的 AI 域名自动放行」。此保守设计是为了防止错误规则覆盖现有广告拦截。GitHub 发布并不意味着 Shadowrocket 已自动刷新。
+
+---
+
+
 > 面向 macOS Shadowrocket 的 AI 专属代理分流规则维护项目。**保留现有主配置、国内外分流和广告拦截**，让 ChatGPT、OpenAI API、Google Gemini、AI Studio、Antigravity 等 AI 服务优先使用个人代理线路。
 
-**项目状态：设计与兼容性验证阶段（尚未完成部署）。** 本仓库 README 描述目标架构和实施计划，不代表模块已验证可在 macOS Shadowrocket 中新增策略组，也不代表自动发现全部 AI 域名。
+**项目状态：核心兼容性已验证，首版自动化已部署。** 本仓库 README 描述目标架构和实施计划，不代表模块已验证可在 macOS Shadowrocket 中新增策略组，也不代表自动发现全部 AI 域名。
 
 ## 1. 目标
 
