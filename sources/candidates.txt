@@ -1,0 +1,3 @@
+# Candidate domains from community sources go here for human review.
+# Lines are DOMAIN,example.com or DOMAIN-SUFFIX,example.com
+# Nothing in this file is published automatically.
