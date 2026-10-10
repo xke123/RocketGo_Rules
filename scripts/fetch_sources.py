@@ -12,7 +12,7 @@ SOURCES = {
     "Yixuling": "https://raw.githubusercontent.com/Yixuling/surge-rulekit/main/rules/AI.list",
 }
 RULE = re.compile(r"^(DOMAIN|DOMAIN-SUFFIX),([a-z0-9.-]+)(?:,|$)", re.I)
-DOMAIN = re.compile(r"^[a-z0-9-]+(?:\\.[a-z0-9-]+)+$", re.I)
+DOMAIN = re.compile(r"^[a-z0-9-]+(?:\.[a-z0-9-]+)+$", re.I)
 DENY = {"google.com", "googleapis.com", "gstatic.com", "cloudflare.com", "apple.com"}
 OUT = ROOT / "sources/candidates.txt"
 REPORT = ROOT / "reports/upstream.json"
