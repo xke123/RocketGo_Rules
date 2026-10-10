@@ -1,0 +1,5 @@
+#!name=xke AI - Phase 1 Test
+#!desc=Temporary compatibility test. Routes only example.com via Tencent-US-Direct. No AI traffic changes.
+
+[Rule]
+DOMAIN,example.com,Tencent-US-Direct
