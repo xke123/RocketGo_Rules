@@ -11,7 +11,7 @@ APPROVED = ROOT / "sources/approved.rules"
 BLOCKED = ROOT / "sources/blocked.rules"
 MODULE = ROOT / "modules/phase2-group-test.module"
 REPORT = ROOT / "reports/build.json"
-DOMAIN_RE = re.compile(r"^(?=.{1,253}$)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$")
+DOMAIN_RE = re.compile(r"^(?=.{1,253}$)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$")
 DENY_SUFFIX = {"google.com", "googleapis.com", "gstatic.com", "cloudflare.com", "apple.com"}
 NODE_A, NODE_B = "Tencent-US-Direct", "Tencent-US"
 
